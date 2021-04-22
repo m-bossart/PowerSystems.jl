@@ -54,15 +54,16 @@ Components
 Num components: 7
 
 6×3 DataFrame
- Row │ ConcreteType     SuperTypes                         Count
-     │ String           String                             Int64
-─────┼───────────────────────────────────────────────────────────
-   1 │ Arc              Topology &lt;: Component &lt;: Infrast…      1
-   2 │ Area             AggregationTopology &lt;: Topology …      1
-   3 │ Bus              Topology &lt;: Component &lt;: Infrast…      2
-   4 │ Line             ACBranch &lt;: Branch &lt;: Device &lt;: …      1
-   5 │ LoadZone         AggregationTopology &lt;: Topology …      1
-   6 │ ThermalStandard  ThermalGen &lt;: Generator &lt;: Stati…      1
+ Row │ ConcreteType     SuperTypes
+     │ String           String
+─────┼───────────────────────────────────────────────────────
+   1 │ Arc              Topology &lt;: Component &lt;: Infrast…
+   2 │ Area             AggregationTopology &lt;: Topology …
+   3 │ Bus              Topology &lt;: Component &lt;: Infrast…
+   4 │ Line             ACBranch &lt;: Branch &lt;: Device &lt;: …
+   5 │ LoadZone         AggregationTopology &lt;: Topology …
+   6 │ ThermalStandard  ThermalGen &lt;: Generator &lt;: Stati…
+                                             1 column omitted
 
 TimeSeriesContainer
 ===================
@@ -88,7 +89,7 @@ avr_none = AVRFixed(Vf = 0.0)
 tg_none = TGFixed(efficiency = 1.0)
 
 #PSS
-pss_none = PSSFixed(V_pss = 0.0);</code></pre><pre class="documenter-example-output">PSSFixed(0.0, Dict{String,Any}(), Symbol[], 0, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;05366701-7094-4860-8ef4-150cc88b5920&quot;), nothing, nothing))</pre><p>Then we can collect all the dynamic components and create the dynamic generator and assign it to a static generator of choice. In this example we will add it to the generator &quot;generator-102-1&quot; as follows:</p><pre><code class="language-julia">#Collect the static gen in the system
+pss_none = PSSFixed(V_pss = 0.0);</code></pre><pre class="documenter-example-output">PSSFixed(0.0, Dict{String, Any}(), Symbol[], 0, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;f4f0222b-cc4d-4132-b9fd-9d5adc30dedf&quot;), nothing, nothing))</pre><p>Then we can collect all the dynamic components and create the dynamic generator and assign it to a static generator of choice. In this example we will add it to the generator &quot;generator-102-1&quot; as follows:</p><pre><code class="language-julia">#Collect the static gen in the system
 static_gen = get_component(Generator, omib_sys, &quot;generator-102-1&quot;)
 #Creates the dynamic generator
 dyn_gen = DynamicGenerator(
@@ -162,16 +163,17 @@ Components
 Num components: 16
 
 7×3 DataFrame
- Row │ ConcreteType     SuperTypes                         Count
-     │ String           String                             Int64
-─────┼───────────────────────────────────────────────────────────
-   1 │ Arc              Topology &lt;: Component &lt;: Infrast…      3
-   2 │ Area             AggregationTopology &lt;: Topology …      1
-   3 │ Bus              Topology &lt;: Component &lt;: Infrast…      3
-   4 │ Line             ACBranch &lt;: Branch &lt;: Device &lt;: …      3
-   5 │ LoadZone         AggregationTopology &lt;: Topology …      1
-   6 │ PowerLoad        StaticLoad &lt;: ElectricLoad &lt;: St…      3
-   7 │ ThermalStandard  ThermalGen &lt;: Generator &lt;: Stati…      2
+ Row │ ConcreteType     SuperTypes
+     │ String           String
+─────┼───────────────────────────────────────────────────────
+   1 │ Arc              Topology &lt;: Component &lt;: Infrast…
+   2 │ Area             AggregationTopology &lt;: Topology …
+   3 │ Bus              Topology &lt;: Component &lt;: Infrast…
+   4 │ Line             ACBranch &lt;: Branch &lt;: Device &lt;: …
+   5 │ LoadZone         AggregationTopology &lt;: Topology …
+   6 │ PowerLoad        StaticLoad &lt;: ElectricLoad &lt;: St…
+   7 │ ThermalStandard  ThermalGen &lt;: Generator &lt;: Stati…
+                                             1 column omitted
 
 TimeSeriesContainer
 ===================
@@ -211,7 +213,7 @@ pll = KauraPLL(
 )
 
 #Define an LCL filter:
-filt = LCLFilter(lf = 0.08, rf = 0.003, cf = 0.074, lg = 0.2, rg = 0.01)</code></pre><pre class="documenter-example-output">LCLFilter(0.08, 0.003, 0.074, 0.2, 0.01, Dict{String,Any}(), [:ir_cnv, :ii_cnv, :vr_filter, :vi_filter, :ir_filter, :ii_filter], 6)</pre><p>Similarly we will construct a dynamic generator as follows:</p><pre><code class="language-julia">#Create the machine
+filt = LCLFilter(lf = 0.08, rf = 0.003, cf = 0.074, lg = 0.2, rg = 0.01)</code></pre><pre class="documenter-example-output">LCLFilter(0.08, 0.003, 0.074, 0.2, 0.01, Dict{String, Any}(), [:ir_cnv, :ii_cnv, :vr_filter, :vi_filter, :ir_filter, :ii_filter], 6)</pre><p>Similarly we will construct a dynamic generator as follows:</p><pre><code class="language-julia">#Create the machine
 machine_oneDoneQ = OneDOneQMachine(
     R = 0.0,
     Xd = 1.3125,
@@ -246,7 +248,7 @@ avr_type1 = AVRTypeI(
 tg_none = TGFixed(efficiency = 1.0)
 
 #No PSS
-pss_none = PSSFixed(V_pss = 0.0);</code></pre><pre class="documenter-example-output">PSSFixed(0.0, Dict{String,Any}(), Symbol[], 0, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;d56e9c24-13f0-45b7-9d9e-88475e4c47f2&quot;), nothing, nothing))</pre><h3 id="Add-the-components-to-the-System"><a class="docs-heading-anchor" href="#Add-the-components-to-the-System">Add the components to the System</a><a id="Add-the-components-to-the-System-1"></a><a class="docs-heading-anchor-permalink" href="#Add-the-components-to-the-System" title="Permalink"></a></h3><pre><code class="language-julia">for g in get_components(Generator, threebus_sys)
+pss_none = PSSFixed(V_pss = 0.0);</code></pre><pre class="documenter-example-output">PSSFixed(0.0, Dict{String, Any}(), Symbol[], 0, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;86814ae6-866c-4cee-aeb6-c81dcfff6d66&quot;), nothing, nothing))</pre><h3 id="Add-the-components-to-the-System"><a class="docs-heading-anchor" href="#Add-the-components-to-the-System">Add the components to the System</a><a id="Add-the-components-to-the-System-1"></a><a class="docs-heading-anchor-permalink" href="#Add-the-components-to-the-System" title="Permalink"></a></h3><pre><code class="language-julia">for g in get_components(Generator, threebus_sys)
     #Find the generator at bus 102
     if get_number(get_bus(g)) == 102
         #Create the dynamic generator
@@ -277,4 +279,4 @@ pss_none = PSSFixed(V_pss = 0.0);</code></pre><pre class="documenter-example-out
         #Attach the dynamic inverter to the system
         add_component!(threebus_sys, case_inv, g)
     end
-end</code></pre><p>Finally we can seraliaze the system data for later reloading</p><pre><code class="language-julia">to_json(threebus_sys, &quot;YOUR_DIR/threebus_sys.json&quot;)</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../example_dynamic_data/">« Dynamic Devices</a><a class="docs-footer-nextpage" href="../market_bid_cost/">PowerSystems <code>MarketBidCost</code> »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Tuesday 20 April 2021 18:30">Tuesday 20 April 2021</span>. Using Julia version 1.4.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+end</code></pre><p>Finally we can seraliaze the system data for later reloading</p><pre><code class="language-julia">to_json(threebus_sys, &quot;YOUR_DIR/threebus_sys.json&quot;)</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../example_dynamic_data/">« Dynamic Devices</a><a class="docs-footer-nextpage" href="../market_bid_cost/">PowerSystems <code>MarketBidCost</code> »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Thursday 22 April 2021 22:44">Thursday 22 April 2021</span>. Using Julia version 1.6.0.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
