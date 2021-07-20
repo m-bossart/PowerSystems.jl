@@ -82,7 +82,7 @@ results = ed_model(system_data, Ipopt.Optimizer)</code></pre><pre class="documen
 [ Info: Reading storage data
 [ Info: Serialized time series data to system_data_time_series_storage.h5.
 [ Info: Serialized System to system_data.json
-[ Info: Loaded time series from storage file existing=system_data_time_series_storage.h5 new=/tmp/jl_xovUkQ compression=CompressionSettings(false, CompressionTypes.DEFLATE = 1, 3, true)
+[ Info: Loaded time series from storage file existing=system_data_time_series_storage.h5 new=/tmp/jl_8p2mwx compression=CompressionSettings(false, CompressionTypes.DEFLATE = 1, 3, true)
 ┌ Warning: Rate 1000.0 MW for bus1-bus5-i_3 is larger than the max expected in the range of (min = 134.0, max = 145.0).
 └ @ PowerSystems ~/work/PowerSystems.jl/PowerSystems.jl/src/utils/IO/branchdata_checks.jl:148
 ┌ Warning: Rate 200.0 MW for bus1-bus4-i_2 is larger than the max expected in the range of (min = 134.0, max = 145.0).
@@ -127,22 +127,22 @@ iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
    6  6.3496663e+01 1.61e+00 1.14e+01  -1.0 3.02e+00    -  5.86e-01 5.06e-01h  1
    7  6.7959825e+01 1.29e+00 9.50e+00  -1.0 1.66e+00    -  1.00e+00 1.99e-01h  1
    8  7.2487883e+01 9.85e-01 8.36e+00  -1.0 1.22e+00    -  1.03e-01 2.35e-01h  1
-   9  8.7328266e+01 0.00e+00 1.00e-06  -1.0 1.03e+00    -  1.00e+00 1.00e+00h  1
+   9  8.7328266e+01 8.88e-16 1.00e-06  -1.0 1.03e+00    -  1.00e+00 1.00e+00h  1
 iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
   10  8.6924994e+01 0.00e+00 2.00e-07  -1.7 1.68e-02    -  1.00e+00 1.00e+00f  1
   11  8.6806908e+01 0.00e+00 6.67e-03  -3.8 1.81e-02    -  9.49e-01 1.00e+00f  1
-  12  8.6804532e+01 8.88e-16 1.50e-09  -3.8 2.45e-03    -  1.00e+00 1.00e+00f  1
+  12  8.6804532e+01 0.00e+00 1.50e-09  -3.8 2.45e-03    -  1.00e+00 1.00e+00f  1
   13  8.6803646e+01 8.88e-16 1.85e-11  -5.7 1.43e-04    -  1.00e+00 1.00e+00f  1
-  14  8.6803635e+01 0.00e+00 2.66e-14  -8.6 1.99e-06    -  1.00e+00 1.00e+00f  1
+  14  8.6803635e+01 8.88e-16 2.84e-14  -8.6 1.99e-06    -  1.00e+00 1.00e+00f  1
 
 Number of Iterations....: 14
 
                                    (scaled)                 (unscaled)
 Objective...............:   8.6803634508060696e+01    8.6803634508060696e+01
-Dual infeasibility......:   2.6645352591003757e-14    2.6645352591003757e-14
-Constraint violation....:   0.0000000000000000e+00    0.0000000000000000e+00
-Complementarity.........:   2.5308018350058887e-09    2.5308018350058887e-09
-Overall NLP error.......:   2.5308018350058887e-09    2.5308018350058887e-09
+Dual infeasibility......:   2.8421709430404007e-14    2.8421709430404007e-14
+Constraint violation....:   8.8817841970012523e-16    8.8817841970012523e-16
+Complementarity.........:   2.5308018350058883e-09    2.5308018350058883e-09
+Overall NLP error.......:   2.5308018350058883e-09    2.5308018350058883e-09
 
 
 Number of objective function evaluations             = 15
@@ -152,7 +152,7 @@ Number of inequality constraint evaluations          = 15
 Number of equality constraint Jacobian evaluations   = 1
 Number of inequality constraint Jacobian evaluations = 1
 Number of Lagrangian Hessian evaluations             = 1
-Total CPU secs in IPOPT (w/o function evaluations)   =      0.343
-Total CPU secs in NLP function evaluations           =      0.138
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.329
+Total CPU secs in NLP function evaluations           =      0.131
 
-EXIT: Optimal Solution Found.</pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../market_bid_cost/">« PowerSystems <code>MarketBidCost</code></a><a class="docs-footer-nextpage" href="../generated_network_matrices/">Network Matrices »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Monday 19 July 2021 22:29">Monday 19 July 2021</span>. Using Julia version 1.6.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+EXIT: Optimal Solution Found.</pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../market_bid_cost/">« PowerSystems <code>MarketBidCost</code></a><a class="docs-footer-nextpage" href="../generated_network_matrices/">Network Matrices »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Tuesday 20 July 2021 02:41">Tuesday 20 July 2021</span>. Using Julia version 1.6.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
