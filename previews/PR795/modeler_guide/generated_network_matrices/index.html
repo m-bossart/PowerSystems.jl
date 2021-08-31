@@ -5,14 +5,116 @@ system_data = System(joinpath(DATA_DIR, &quot;matpower/case14.m&quot;))</code></
 <p><b>Base Power</b>: 100.0</p>
 <h2>Components</h2>
 <p><b>Num components</b>: 73</p>
-<div class="data-frame"><p>9 rows × 3 columns</p><table class="data-frame"><thead><tr><th></th><th>ConcreteType</th><th>SuperTypes</th><th>Count</th></tr><tr><th></th><th title="String">String</th><th title="String">String</th><th title="Int64">Int64</th></tr></thead><tbody><tr><th>1</th><td>Arc</td><td>Topology &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>20</td></tr><tr><th>2</th><td>Area</td><td>AggregationTopology &lt;: Topology &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>1</td></tr><tr><th>3</th><td>Bus</td><td>Topology &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>14</td></tr><tr><th>4</th><td>FixedAdmittance</td><td>ElectricLoad &lt;: StaticInjection &lt;: Device &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>1</td></tr><tr><th>5</th><td>Line</td><td>ACBranch &lt;: Branch &lt;: Device &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>17</td></tr><tr><th>6</th><td>LoadZone</td><td>AggregationTopology &lt;: Topology &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>1</td></tr><tr><th>7</th><td>PowerLoad</td><td>StaticLoad &lt;: ElectricLoad &lt;: StaticInjection &lt;: Device &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>11</td></tr><tr><th>8</th><td>TapTransformer</td><td>ACBranch &lt;: Branch &lt;: Device &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>3</td></tr><tr><th>9</th><td>ThermalStandard</td><td>ThermalGen &lt;: Generator &lt;: StaticInjection &lt;: Device &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>5</td></tr></tbody></table></div>
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<style>
+  table, td, th {
+      border-collapse: collapse;
+      font-family: sans-serif;
+  }
 
-<h2>TimeSeriesContainer</h2>
-<p><b>Components with time series data</b>: 0</p>
-<p><b>Total StaticTimeSeries</b>: 0</p>
-<p><b>Total Forecasts</b>: 0</p>
-<p><b>Resolution</b>: 0 seconds</p>
-<h2 id="Ybus"><a class="docs-heading-anchor" href="#Ybus">Ybus</a><a id="Ybus-1"></a><a class="docs-heading-anchor-permalink" href="#Ybus" title="Permalink"></a></h2><p>The ybus can be calculated as follows:</p><pre><code class="language-julia">ybus = Ybus(system_data)</code></pre><pre class="documenter-example-output">PowerNetworkMatrix
+  td, th {
+      border-bottom: 0;
+      padding: 4px
+  }
+
+  tr:nth-child(odd) {
+      background: #eee;
+  }
+
+  tr:nth-child(even) {
+      background: #fff;
+  }
+
+  tr.header {
+      background: navy !important;
+      color: white;
+      font-weight: bold;
+  }
+
+  tr.subheader {
+      background: lightgray !important;
+      color: black;
+  }
+
+  tr.headerLastRow {
+      border-bottom: 2px solid black;
+  }
+
+  th.rowNumber, td.rowNumber {
+      text-align: right;
+  }
+
+</style>
+<body>
+<table>
+  <tr class = "header headerLastRow">
+    <th style = "text-align: left;">Type</th>
+    <th style = "text-align: left;">Count</th>
+    <th style = "text-align: left;">Has Static Time Series</th>
+    <th style = "text-align: left;">Has Forecasts</th>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">Arc</td>
+    <td style = "text-align: left;">20</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">Area</td>
+    <td style = "text-align: left;">1</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">Bus</td>
+    <td style = "text-align: left;">14</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">FixedAdmittance</td>
+    <td style = "text-align: left;">1</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">Line</td>
+    <td style = "text-align: left;">17</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">LoadZone</td>
+    <td style = "text-align: left;">1</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">PowerLoad</td>
+    <td style = "text-align: left;">11</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">TapTransformer</td>
+    <td style = "text-align: left;">3</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">ThermalStandard</td>
+    <td style = "text-align: left;">5</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+</table>
+</body>
+</html>
+
+
+InfrastructureSystems.TimeSeriesParameters(Dates.Minute(0), InfrastructureSystems.ForecastParameters(0, Dates.DateTime("0001-01-01T00:00:00"), Dates.Minute(0), 0))<h2 id="Ybus"><a class="docs-heading-anchor" href="#Ybus">Ybus</a><a id="Ybus-1"></a><a class="docs-heading-anchor-permalink" href="#Ybus" title="Permalink"></a></h2><p>The ybus can be calculated as follows:</p><pre><code class="language-julia">ybus = Ybus(system_data)</code></pre><pre class="documenter-example-output">PowerNetworkMatrix
 :
   6.02503-19.4471im  -4.99913+15.2631im  …           ⋅    
  -4.99913+15.2631im   9.52132-30.2721im              ⋅    
@@ -121,4 +223,4 @@ ptdf_entry = ptdf[line, bus]</code></pre><pre class="documenter-example-output">
  -0.0114817     0.0114817    -0.0119766        0.132283      1.0
  -0.0173795     0.0173795    -0.0181287       -0.0656897    -0.496584
   0.00255259   -0.00255259    0.00266262      -1.0          -0.222319
-  0.0114817    -0.0114817     0.0119766       -0.132283     -1.0</pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../generated_modeling_with_JuMP/">« Modeling With Jump</a><a class="docs-footer-nextpage" href="../generated_parsing/">Parsing »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Saturday 28 August 2021 01:14">Saturday 28 August 2021</span>. Using Julia version 1.6.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+  0.0114817    -0.0114817     0.0119766       -0.132283     -1.0</pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../generated_modeling_with_JuMP/">« Modeling With Jump</a><a class="docs-footer-nextpage" href="../generated_parsing/">Parsing »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Tuesday 31 August 2021 00:37">Tuesday 31 August 2021</span>. Using Julia version 1.6.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

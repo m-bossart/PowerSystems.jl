@@ -5,20 +5,152 @@ system_data = System(joinpath(DATA_DIR, &quot;matpower/RTS_GMLC.m&quot;))</code>
 <p><b>Base Power</b>: 100.0</p>
 <h2>Components</h2>
 <p><b>Num components</b>: 538</p>
-<div class="data-frame"><p>14 rows × 3 columns</p><table class="data-frame"><thead><tr><th></th><th>ConcreteType</th><th>SuperTypes</th><th>Count</th></tr><tr><th></th><th title="String">String</th><th title="String">String</th><th title="Int64">Int64</th></tr></thead><tbody><tr><th>1</th><td>Arc</td><td>Topology &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>109</td></tr><tr><th>2</th><td>Area</td><td>AggregationTopology &lt;: Topology &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>3</td></tr><tr><th>3</th><td>Bus</td><td>Topology &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>73</td></tr><tr><th>4</th><td>FixedAdmittance</td><td>ElectricLoad &lt;: StaticInjection &lt;: Device &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>3</td></tr><tr><th>5</th><td>HVDCLine</td><td>DCBranch &lt;: Branch &lt;: Device &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>1</td></tr><tr><th>6</th><td>HydroDispatch</td><td>HydroGen &lt;: Generator &lt;: StaticInjection &lt;: Device &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>20</td></tr><tr><th>7</th><td>Line</td><td>ACBranch &lt;: Branch &lt;: Device &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>104</td></tr><tr><th>8</th><td>LoadZone</td><td>AggregationTopology &lt;: Topology &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>21</td></tr><tr><th>9</th><td>PowerLoad</td><td>StaticLoad &lt;: ElectricLoad &lt;: StaticInjection &lt;: Device &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>51</td></tr><tr><th>10</th><td>RenewableDispatch</td><td>RenewableGen &lt;: Generator &lt;: StaticInjection &lt;: Device &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>30</td></tr><tr><th>11</th><td>RenewableFix</td><td>RenewableGen &lt;: Generator &lt;: StaticInjection &lt;: Device &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>31</td></tr><tr><th>12</th><td>TapTransformer</td><td>ACBranch &lt;: Branch &lt;: Device &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>15</td></tr><tr><th>13</th><td>ThermalStandard</td><td>ThermalGen &lt;: Generator &lt;: StaticInjection &lt;: Device &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>76</td></tr><tr><th>14</th><td>Transformer2W</td><td>ACBranch &lt;: Branch &lt;: Device &lt;: Component &lt;: InfrastructureSystemsComponent &lt;: InfrastructureSystemsType &lt;: Any</td><td>1</td></tr></tbody></table></div>
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<style>
+  table, td, th {
+      border-collapse: collapse;
+      font-family: sans-serif;
+  }
 
-<h2>TimeSeriesContainer</h2>
-<p><b>Components with time series data</b>: 0</p>
-<p><b>Total StaticTimeSeries</b>: 0</p>
-<p><b>Total Forecasts</b>: 0</p>
-<p><b>Resolution</b>: 0 seconds</p>
-<p>More details about parsing text files from different formats in <a href="../modeler_guide/generated_parsing/#parsing">this section</a></p><hr/><h2 id="Using-PowerSystems.jl-for-modeling"><a class="docs-heading-anchor" href="#Using-PowerSystems.jl-for-modeling">Using <code>PowerSystems.jl</code> for modeling</a><a id="Using-PowerSystems.jl-for-modeling-1"></a><a class="docs-heading-anchor-permalink" href="#Using-PowerSystems.jl-for-modeling" title="Permalink"></a></h2><p>This example function implements a function where the modeler can choose the technology by its type and use the different implementations of <a href="../api/public/#PowerSystems.get_max_active_power-Tuple{T} where T&lt;:RenewableGen"><code>get_max_active_power</code></a>. <strong>Using the &quot;dot&quot; access to get a parameter value from a device is actively discouraged, use &quot;getter&quot; functions instead</strong></p><p>Refer to <a href="../modeler_guide/generated_modeling_with_JuMP/#modeling_with_jump">Modeling with JuMP</a> for a more detailed use of <code>PowerSystems.jl</code> to develop a model</p><pre><code class="language-julia">function installed_capacity(system::System; technology::Type{T} = Generator) where T &lt;: Generator
+  td, th {
+      border-bottom: 0;
+      padding: 4px
+  }
+
+  tr:nth-child(odd) {
+      background: #eee;
+  }
+
+  tr:nth-child(even) {
+      background: #fff;
+  }
+
+  tr.header {
+      background: navy !important;
+      color: white;
+      font-weight: bold;
+  }
+
+  tr.subheader {
+      background: lightgray !important;
+      color: black;
+  }
+
+  tr.headerLastRow {
+      border-bottom: 2px solid black;
+  }
+
+  th.rowNumber, td.rowNumber {
+      text-align: right;
+  }
+
+</style>
+<body>
+<table>
+  <tr class = "header headerLastRow">
+    <th style = "text-align: left;">Type</th>
+    <th style = "text-align: left;">Count</th>
+    <th style = "text-align: left;">Has Static Time Series</th>
+    <th style = "text-align: left;">Has Forecasts</th>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">Arc</td>
+    <td style = "text-align: left;">109</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">Area</td>
+    <td style = "text-align: left;">3</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">Bus</td>
+    <td style = "text-align: left;">73</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">FixedAdmittance</td>
+    <td style = "text-align: left;">3</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">HVDCLine</td>
+    <td style = "text-align: left;">1</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">HydroDispatch</td>
+    <td style = "text-align: left;">20</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">Line</td>
+    <td style = "text-align: left;">104</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">LoadZone</td>
+    <td style = "text-align: left;">21</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">PowerLoad</td>
+    <td style = "text-align: left;">51</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">RenewableDispatch</td>
+    <td style = "text-align: left;">30</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">RenewableFix</td>
+    <td style = "text-align: left;">31</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">TapTransformer</td>
+    <td style = "text-align: left;">15</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">ThermalStandard</td>
+    <td style = "text-align: left;">76</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+  <tr>
+    <td style = "text-align: left;">Transformer2W</td>
+    <td style = "text-align: left;">1</td>
+    <td style = "text-align: left;">false</td>
+    <td style = "text-align: left;">#undef</td>
+  </tr>
+</table>
+</body>
+</html>
+
+
+InfrastructureSystems.TimeSeriesParameters(Dates.Minute(0), InfrastructureSystems.ForecastParameters(0, Dates.DateTime("0001-01-01T00:00:00"), Dates.Minute(0), 0))<p>More details about parsing text files from different formats in <a href="../modeler_guide/generated_parsing/#parsing">this section</a></p><hr/><h2 id="Using-PowerSystems.jl-for-modeling"><a class="docs-heading-anchor" href="#Using-PowerSystems.jl-for-modeling">Using <code>PowerSystems.jl</code> for modeling</a><a id="Using-PowerSystems.jl-for-modeling-1"></a><a class="docs-heading-anchor-permalink" href="#Using-PowerSystems.jl-for-modeling" title="Permalink"></a></h2><p>This example function implements a function where the modeler can choose the technology by its type and use the different implementations of <a href="../api/public/#PowerSystems.get_max_active_power-Tuple{T} where T&lt;:RenewableGen"><code>get_max_active_power</code></a>. <strong>Using the &quot;dot&quot; access to get a parameter value from a device is actively discouraged, use &quot;getter&quot; functions instead</strong></p><p>Refer to <a href="../modeler_guide/generated_modeling_with_JuMP/#modeling_with_jump">Modeling with JuMP</a> for a more detailed use of <code>PowerSystems.jl</code> to develop a model</p><pre><code class="language-julia">function installed_capacity(system::System; technology::Type{T} = Generator) where T &lt;: Generator
     installed_capacity = 0.0
     for g in get_components(T, system)
         installed_capacity += get_max_active_power(g)
     end
     return installed_capacity
-end</code></pre><pre class="documenter-example-output">installed_capacity (generic function with 1 method)</pre><ul><li>Total installed capacity</li></ul><pre><code class="language-julia">installed_capacity(system_data)</code></pre><pre class="documenter-example-output">144.99799999999996</pre><ul><li>Installed capacity of the thermal generation</li></ul><pre><code class="language-julia">installed_capacity(system_data; technology = ThermalStandard)</code></pre><pre class="documenter-example-output">80.75999999999998</pre><ul><li>Installed capacity of renewable generation</li></ul><pre><code class="language-julia">installed_capacity(system_data; technology = RenewableGen)</code></pre><pre class="documenter-example-output">54.23800000000002</pre><hr/><h2 id="Adding-Time-Series-data-to-a-System"><a class="docs-heading-anchor" href="#Adding-Time-Series-data-to-a-System">Adding Time Series data to a <code>System</code></a><a id="Adding-Time-Series-data-to-a-System-1"></a><a class="docs-heading-anchor-permalink" href="#Adding-Time-Series-data-to-a-System" title="Permalink"></a></h2><p><code>PowerSystems.jl</code> provides interfaces to augment the data sets already created. You can also add time series data to a system from one or more CSV files, more details in <a href="../modeler_guide/time_series/#ts_data"><code>Time Series Data</code></a>. This example implements <a href="https://nrel-siip.github.io/InfrastructureSystems.jl/stable/InfrastructureSystems/#InfrastructureSystems.SingleTimeSeries"><code>SingleTimeSeries</code></a></p><pre><code class="language-julia">using PowerSystems
+end</code></pre><pre class="documenter-example-output">installed_capacity (generic function with 1 method)</pre><ul><li>Total installed capacity</li></ul><pre><code class="language-julia">installed_capacity(system_data)</code></pre><pre class="documenter-example-output">144.99799999999993</pre><ul><li>Installed capacity of the thermal generation</li></ul><pre><code class="language-julia">installed_capacity(system_data; technology = ThermalStandard)</code></pre><pre class="documenter-example-output">80.75999999999998</pre><ul><li>Installed capacity of renewable generation</li></ul><pre><code class="language-julia">installed_capacity(system_data; technology = RenewableGen)</code></pre><pre class="documenter-example-output">54.23799999999999</pre><hr/><h2 id="Adding-Time-Series-data-to-a-System"><a class="docs-heading-anchor" href="#Adding-Time-Series-data-to-a-System">Adding Time Series data to a <code>System</code></a><a id="Adding-Time-Series-data-to-a-System-1"></a><a class="docs-heading-anchor-permalink" href="#Adding-Time-Series-data-to-a-System" title="Permalink"></a></h2><p><code>PowerSystems.jl</code> provides interfaces to augment the data sets already created. You can also add time series data to a system from one or more CSV files, more details in <a href="../modeler_guide/time_series/#ts_data"><code>Time Series Data</code></a>. This example implements <a href="https://nrel-siip.github.io/InfrastructureSystems.jl/stable/InfrastructureSystems/#InfrastructureSystems.SingleTimeSeries"><code>SingleTimeSeries</code></a></p><pre><code class="language-julia">using PowerSystems
 using TimeSeries
 using Dates
 system = System(joinpath(DATA_DIR, &quot;matpower/case5.m&quot;))
@@ -76,4 +208,4 @@ add_time_series!(system, new_renewable, time_series)</code></pre><pre class="doc
 └ @ PowerSystems ~/work/PowerSystems.jl/PowerSystems.jl/src/utils/IO/branchdata_checks.jl:148
 [ Info: Reading branch data
 [ Info: Reading DC Line data
-[ Info: Reading storage data</pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Welcome Page</a><a class="docs-footer-nextpage" href="../tutorials/intro_page/">Tutorials »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Saturday 28 August 2021 01:14">Saturday 28 August 2021</span>. Using Julia version 1.6.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+[ Info: Reading storage data</pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Welcome Page</a><a class="docs-footer-nextpage" href="../tutorials/intro_page/">Tutorials »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Tuesday 31 August 2021 00:37">Tuesday 31 August 2021</span>. Using Julia version 1.6.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
