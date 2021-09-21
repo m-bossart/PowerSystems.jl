@@ -84,7 +84,7 @@ avr_none = AVRFixed(Vf = 0.0)
 tg_none = TGFixed(efficiency = 1.0)
 
 #PSS
-pss_none = PSSFixed(V_pss = 0.0);</code></pre><pre class="documenter-example-output">PSSFixed(0.0, Dict{String, Any}(), Symbol[], 0, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;57fee23c-f4e8-47b0-b34a-a66f6de64140&quot;), nothing, nothing))</pre><p>Then we can collect all the dynamic components and create the dynamic generator and assign it to a static generator of choice. In this example we will add it to the generator &quot;generator-102-1&quot; as follows:</p><pre><code class="language-julia">#Collect the static gen in the system
+pss_none = PSSFixed(V_pss = 0.0);</code></pre><pre class="documenter-example-output">PSSFixed(0.0, Dict{String, Any}(), Symbol[], 0, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;b7b6c0c1-1c23-40c4-835e-ff0c3038f665&quot;), nothing, nothing))</pre><p>Then we can collect all the dynamic components and create the dynamic generator and assign it to a static generator of choice. In this example we will add it to the generator &quot;generator-102-1&quot; as follows:</p><pre><code class="language-julia">#Collect the static gen in the system
 static_gen = get_component(Generator, omib_sys, &quot;generator-102-1&quot;)
 #Creates the dynamic generator
 dyn_gen = DynamicGenerator(
@@ -238,7 +238,7 @@ avr_type1 = AVRTypeI(
 tg_none = TGFixed(efficiency = 1.0)
 
 #No PSS
-pss_none = PSSFixed(V_pss = 0.0);</code></pre><pre class="documenter-example-output">PSSFixed(0.0, Dict{String, Any}(), Symbol[], 0, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;a92c3c0b-ceab-4d4f-a71d-7e859b6ef27b&quot;), nothing, nothing))</pre><h3 id="Add-the-components-to-the-System"><a class="docs-heading-anchor" href="#Add-the-components-to-the-System">Add the components to the System</a><a id="Add-the-components-to-the-System-1"></a><a class="docs-heading-anchor-permalink" href="#Add-the-components-to-the-System" title="Permalink"></a></h3><pre><code class="language-julia">for g in get_components(Generator, threebus_sys)
+pss_none = PSSFixed(V_pss = 0.0);</code></pre><pre class="documenter-example-output">PSSFixed(0.0, Dict{String, Any}(), Symbol[], 0, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;94094633-8328-4fd8-95f4-78cfb7b16e77&quot;), nothing, nothing))</pre><h3 id="Add-the-components-to-the-System"><a class="docs-heading-anchor" href="#Add-the-components-to-the-System">Add the components to the System</a><a id="Add-the-components-to-the-System-1"></a><a class="docs-heading-anchor-permalink" href="#Add-the-components-to-the-System" title="Permalink"></a></h3><pre><code class="language-julia">for g in get_components(Generator, threebus_sys)
     #Find the generator at bus 102
     if get_number(get_bus(g)) == 102
         #Create the dynamic generator
