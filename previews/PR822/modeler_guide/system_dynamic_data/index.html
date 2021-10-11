@@ -84,7 +84,7 @@ avr_none = AVRFixed(Vf = 0.0)
 tg_none = TGFixed(efficiency = 1.0)
 
 #PSS
-pss_none = PSSFixed(V_pss = 0.0);</code></pre><pre class="documenter-example-output">PSSFixed(0.0, Dict{String, Any}(), Symbol[], 0, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;fa48808c-e5b5-43c2-9e62-5523f127e422&quot;), nothing, nothing))</pre><p>Then we can collect all the dynamic components and create the dynamic generator and assign it to a static generator of choice. In this example we will add it to the generator &quot;generator-102-1&quot; as follows:</p><pre><code class="language-julia">#Collect the static gen in the system
+pss_none = PSSFixed(V_pss = 0.0);</code></pre><pre class="documenter-example-output">PSSFixed(0.0, Dict{String, Any}(), Symbol[], 0, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;aa55fdca-8909-4a58-8fa1-a873ad19b465&quot;), nothing, nothing))</pre><p>Then we can collect all the dynamic components and create the dynamic generator and assign it to a static generator of choice. In this example we will add it to the generator &quot;generator-102-1&quot; as follows:</p><pre><code class="language-julia">#Collect the static gen in the system
 static_gen = get_component(Generator, omib_sys, &quot;generator-102-1&quot;)
 #Creates the dynamic generator
 dyn_gen = DynamicGenerator(
@@ -136,40 +136,7 @@ Q</code></pre><p>That describes a three bus connected system, with generators co
 julia&gt; threebus_sys = System(joinpath(DATA_DIR, &quot;PSSE_test/ThreeBusInverter.raw&quot;), runchecks = false)
 [ Info: The PSS(R)E parser currently supports buses, loads, shunts, generators, branches, transformers, and dc lines
 [ Info: The PSS(R)E parser currently supports buses, loads, shunts, generators, branches, transformers, and dc lines
-[ Info: angmin and angmax values are 0, widening these values on branch 1 to +/- 60.0 deg.
-[ Info: angmin and angmax values are 0, widening these values on branch 2 to +/- 60.0 deg.
-[ Info: angmin and angmax values are 0, widening these values on branch 3 to +/- 60.0 deg.
-┌ Info: Constructing System from Power Models
-│   data[&quot;name&quot;] = &quot;threebusinverter&quot;
-└   data[&quot;source_type&quot;] = &quot;pti&quot;
-[ Info: Reading bus data
-[ Info: Reading generator data
-[ Info: Reading branch data
-[ Info: Reading branch data
-[ Info: Reading DC Line data
-[ Info: Reading storage data
-System
-┌───────────────────┬─────────────┐
-│ Property          │ Value       │
-├───────────────────┼─────────────┤
-│ System Units Base │ SYSTEM_BASE │
-│ Base Power        │ 100.0       │
-│ Base Frequency    │ 60.0        │
-│ Num Components    │ 16          │
-└───────────────────┴─────────────┘
-
-Static Components
-┌─────────────────┬───────┬────────────────────────┬───────────────┐
-│ Type            │ Count │ Has Static Time Series │ Has Forecasts │
-├─────────────────┼───────┼────────────────────────┼───────────────┤
-│ Arc             │ 3     │ false                  │ false         │
-│ Area            │ 1     │ false                  │ false         │
-│ Bus             │ 3     │ false                  │ false         │
-│ Line            │ 3     │ false                  │ false         │
-│ LoadZone        │ 1     │ false                  │ false         │
-│ PowerLoad       │ 3     │ false                  │ false         │
-│ ThermalStandard │ 2     │ false                  │ false         │
-└─────────────────┴───────┴────────────────────────┴───────────────┘</code></pre><p>We will connect a <a href="../../model_library/generated_Machine/#PowerSystems.OneDOneQMachine"><code>OneDOneQMachine</code></a> machine at bus 102, and a Virtual Synchronous Generator Inverter at bus 103. An inverter is composed by a <code>converter</code>, <code>outer control</code>, <code>inner control</code>, <code>dc source</code>, <code>frequency estimator</code> and a <code>filter</code> (see <a href="../../model_library/dynamic_inverter/#PowerSystems.DynamicInverter"><code>DynamicInverter</code></a>).</p><h3 id="Dynamic-Inverter-definition"><a class="docs-heading-anchor" href="#Dynamic-Inverter-definition">Dynamic Inverter definition</a><a id="Dynamic-Inverter-definition-1"></a><a class="docs-heading-anchor-permalink" href="#Dynamic-Inverter-definition" title="Permalink"></a></h3><p>We will create specific components of the inverter as follows:</p><pre><code class="language-julia">#Define converter as an AverageConverter
+ERROR:</code></pre><p>We will connect a <a href="../../model_library/generated_Machine/#PowerSystems.OneDOneQMachine"><code>OneDOneQMachine</code></a> machine at bus 102, and a Virtual Synchronous Generator Inverter at bus 103. An inverter is composed by a <code>converter</code>, <code>outer control</code>, <code>inner control</code>, <code>dc source</code>, <code>frequency estimator</code> and a <code>filter</code> (see <a href="../../model_library/dynamic_inverter/#PowerSystems.DynamicInverter"><code>DynamicInverter</code></a>).</p><h3 id="Dynamic-Inverter-definition"><a class="docs-heading-anchor" href="#Dynamic-Inverter-definition">Dynamic Inverter definition</a><a id="Dynamic-Inverter-definition-1"></a><a class="docs-heading-anchor-permalink" href="#Dynamic-Inverter-definition" title="Permalink"></a></h3><p>We will create specific components of the inverter as follows:</p><pre><code class="language-julia">#Define converter as an AverageConverter
 converter_high_power = AverageConverter(rated_voltage = 138.0, rated_current = 100.0)
 
 #Define Outer Control as a composition of Virtual Inertia + Reactive Power Droop
@@ -238,7 +205,7 @@ avr_type1 = AVRTypeI(
 tg_none = TGFixed(efficiency = 1.0)
 
 #No PSS
-pss_none = PSSFixed(V_pss = 0.0);</code></pre><pre class="documenter-example-output">PSSFixed(0.0, Dict{String, Any}(), Symbol[], 0, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;972b5f4e-335b-4b4e-948e-06e85ce07e82&quot;), nothing, nothing))</pre><h3 id="Add-the-components-to-the-System"><a class="docs-heading-anchor" href="#Add-the-components-to-the-System">Add the components to the System</a><a id="Add-the-components-to-the-System-1"></a><a class="docs-heading-anchor-permalink" href="#Add-the-components-to-the-System" title="Permalink"></a></h3><pre><code class="language-julia">for g in get_components(Generator, threebus_sys)
+pss_none = PSSFixed(V_pss = 0.0);</code></pre><pre class="documenter-example-output">PSSFixed(0.0, Dict{String, Any}(), Symbol[], 0, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;9c5e80c6-ef25-491c-bc7c-ab1d0c978f9d&quot;), nothing, nothing))</pre><h3 id="Add-the-components-to-the-System"><a class="docs-heading-anchor" href="#Add-the-components-to-the-System">Add the components to the System</a><a id="Add-the-components-to-the-System-1"></a><a class="docs-heading-anchor-permalink" href="#Add-the-components-to-the-System" title="Permalink"></a></h3><pre><code class="language-">for g in get_components(Generator, threebus_sys)
     #Find the generator at bus 102
     if get_number(get_bus(g)) == 102
         #Create the dynamic generator
@@ -269,4 +236,4 @@ pss_none = PSSFixed(V_pss = 0.0);</code></pre><pre class="documenter-example-out
         #Attach the dynamic inverter to the system
         add_component!(threebus_sys, case_inv, g)
     end
-end</code></pre><p>Finally we can seraliaze the system data for later reloading</p><pre><code class="language-julia">to_json(threebus_sys, &quot;YOUR_DIR/threebus_sys.json&quot;)</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../example_dynamic_data/">« Dynamic Devices</a><a class="docs-footer-nextpage" href="../market_bid_cost/">PowerSystems <code>MarketBidCost</code> »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Monday 11 October 2021 14:56">Monday 11 October 2021</span>. Using Julia version 1.6.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+end</code></pre><p>Finally we can seraliaze the system data for later reloading</p><pre><code class="language-julia">to_json(threebus_sys, &quot;YOUR_DIR/threebus_sys.json&quot;)</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../example_dynamic_data/">« Dynamic Devices</a><a class="docs-footer-nextpage" href="../market_bid_cost/">PowerSystems <code>MarketBidCost</code> »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Monday 11 October 2021 16:56">Monday 11 October 2021</span>. Using Julia version 1.6.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
