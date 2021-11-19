@@ -46,15 +46,22 @@ function ed_model(system::System, optimizer)
 end
 
 system_data = System(&quot;system_data.json&quot;)
-results = ed_model(system_data, Ipopt.Optimizer)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">[ Info: extending matpower format with data: areas 1x3
+results = ed_model(system_data, Ipopt.Optimizer)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">[ Info: Correcting vm in bus 1 to 1.07762 to match generator set-point
+[ Info: Correcting vm in bus 3 to 1.1 to match generator set-point
+[ Info: Correcting vm in bus 4 to 1.06414 to match generator set-point
+[ Info: Correcting vm in bus 10 to 1.06907 to match generator set-point
+[ Info: Correcting vm in bus 3 to 1.0 to match generator set-point
+┌ Error: Generator voltage set-points for bus 3 are inconsistent. This can lead to unexpected results
+└ @ PowerSystems ~/work/PowerSystems.jl/PowerSystems.jl/src/parsers/pm_io/matpower.jl:245
+[ Info: Correcting vm in bus 10 to 1.0 to match generator set-point
+┌ Error: Generator voltage set-points for bus 10 are inconsistent. This can lead to unexpected results
+└ @ PowerSystems ~/work/PowerSystems.jl/PowerSystems.jl/src/parsers/pm_io/matpower.jl:245
+[ Info: extending matpower format with data: areas 1x3
 [ Info: extending matpower format with data: gen_name 7x4
 [ Info: extending matpower format by appending matrix &quot;gen_name&quot; in to &quot;gen&quot;
 [ Info: reversing the orientation of branch 6 (4, 3) to be consistent with other parallel branches
-[ Info: the voltage setpoint on generator 4 does not match the value at bus 4
-[ Info: the voltage setpoint on generator 1 does not match the value at bus 1
-[ Info: the voltage setpoint on generator 5 does not match the value at bus 10
-[ Info: the voltage setpoint on generator 2 does not match the value at bus 1
-[ Info: the voltage setpoint on generator 3 does not match the value at bus 3
+[ Info: the voltage setpoint on generator 6 does not match the value at bus 3
+[ Info: the voltage setpoint on generator 7 does not match the value at bus 10
 [ Info: removing 1 cost terms from generator 4: [4000.0, 0.0]
 [ Info: removing 1 cost terms from generator 1: [1400.0, 0.0]
 [ Info: removing 1 cost terms from generator 5: [1000.0, 0.0]
@@ -73,7 +80,7 @@ results = ed_model(system_data, Ipopt.Optimizer)</code></pre><pre class="documen
 [ Info: Reading storage data
 [ Info: Serialized time series data to system_data_time_series_storage.h5.
 [ Info: Serialized System to system_data.json
-[ Info: Loaded time series from storage file existing=system_data_time_series_storage.h5 new=/tmp/jl_78wibO compression=CompressionSettings(false, CompressionTypes.DEFLATE = 1, 3, true)
+[ Info: Loaded time series from storage file existing=system_data_time_series_storage.h5 new=/tmp/jl_0gSUSB compression=CompressionSettings(false, CompressionTypes.DEFLATE = 1, 3, true)
 
 ******************************************************************************
 This program contains Ipopt, a library for large-scale nonlinear optimization.
@@ -137,8 +144,8 @@ Number of Iterations....: 28
 Objective...............:   2.1467874373101149e+03    2.1467874373101149e+03
 Dual infeasibility......:   2.9615390187805657e-14    2.9615390187805657e-14
 Constraint violation....:   1.7763568394002505e-15    1.7763568394002505e-15
-Complementarity.........:   3.4421065627999466e-09    3.4421065627999466e-09
-Overall NLP error.......:   3.4421065627999466e-09    3.4421065627999466e-09
+Complementarity.........:   3.4421065628168012e-09    3.4421065628168012e-09
+Overall NLP error.......:   3.4421065628168012e-09    3.4421065628168012e-09
 
 
 Number of objective function evaluations             = 29
@@ -148,7 +155,7 @@ Number of inequality constraint evaluations          = 29
 Number of equality constraint Jacobian evaluations   = 1
 Number of inequality constraint Jacobian evaluations = 1
 Number of Lagrangian Hessian evaluations             = 1
-Total CPU secs in IPOPT (w/o function evaluations)   =      0.495
-Total CPU secs in NLP function evaluations           =      0.152
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.375
+Total CPU secs in NLP function evaluations           =      0.136
 
-EXIT: Optimal Solution Found.</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../market_bid_cost/">« PowerSystems <code>MarketBidCost</code></a><a class="docs-footer-nextpage" href="../generated_network_matrices/">Network Matrices »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.10 on <span class="colophon-date" title="Wednesday 17 November 2021 02:34">Wednesday 17 November 2021</span>. Using Julia version 1.6.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+EXIT: Optimal Solution Found.</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../market_bid_cost/">« PowerSystems <code>MarketBidCost</code></a><a class="docs-footer-nextpage" href="../generated_network_matrices/">Network Matrices »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.10 on <span class="colophon-date" title="Friday 19 November 2021 19:56">Friday 19 November 2021</span>. Using Julia version 1.6.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
