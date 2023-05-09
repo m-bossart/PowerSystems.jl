@@ -53,10 +53,75 @@ Static Components
 │ PowerLoad                │ 3     │ false                  │ false         │
 │ RenewableDispatch        │ 2     │ false                  │ false         │
 │ ThermalStandard          │ 5     │ false                  │ false         │
-└──────────────────────────┴───────┴────────────────────────┴───────────────┘</code></pre><h2 id="Define-pointers-to-time-series-files"><a class="docs-heading-anchor" href="#Define-pointers-to-time-series-files">Define pointers to time series files</a><a id="Define-pointers-to-time-series-files-1"></a><a class="docs-heading-anchor-permalink" href="#Define-pointers-to-time-series-files" title="Permalink"></a></h2><p>For example, if we want to add a bunch of time series files, say one for each load and one for each renewable generator, we need to define pointers to each .csv file containing the time series in the following format (PowerSystems.jl also supports a CSV format for this file). We will use Artifacts for the following <a href="https://github.com/NREL-Sienna/PowerSystemsTestData/tree/master/5-Bus/5bus_ts">data</a></p><pre><code class="language-julia-repl hljs" style="display:block;">julia&gt; import LazyArtifacts</code><code class="nohighlight hljs ansi" style="display:block;"></code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; DATA_DIR = joinpath(LazyArtifacts.artifact&quot;CaseData&quot;, &quot;PowerSystemsTestData-1.0.1&quot;);</code><code class="nohighlight hljs ansi" style="display:block;">ERROR: LoadError: Cannot locate &#39;(Julia)Artifacts.toml&#39; file when attempting to use artifact &#39;CaseData&#39; in &#39;Main&#39;
-in expression starting at REPL[2]:1</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; FORECASTS_DIR = joinpath(DATA_DIR, &quot;5-Bus&quot;, &quot;5bus_ts&quot;);</code><code class="nohighlight hljs ansi" style="display:block;">ERROR: UndefVarError: `DATA_DIR` not defined</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; fname = joinpath(FORECASTS_DIR, &quot;timeseries_pointers_da.json&quot;);</code><code class="nohighlight hljs ansi" style="display:block;">ERROR: UndefVarError: `FORECASTS_DIR` not defined</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; open(fname, &quot;r&quot;) do f
+└──────────────────────────┴───────┴────────────────────────┴───────────────┘</code></pre><h2 id="Define-pointers-to-time-series-files"><a class="docs-heading-anchor" href="#Define-pointers-to-time-series-files">Define pointers to time series files</a><a id="Define-pointers-to-time-series-files-1"></a><a class="docs-heading-anchor-permalink" href="#Define-pointers-to-time-series-files" title="Permalink"></a></h2><p>For example, if we want to add a bunch of time series files, say one for each load and one for each renewable generator, we need to define pointers to each .csv file containing the time series in the following format (PowerSystems.jl also supports a CSV format for this file). We will use Artifacts for the following <a href="https://github.com/NREL-Sienna/PowerSystemsTestData/tree/master/5-Bus/5bus_ts">data</a></p><pre><code class="nohighlight hljs ansi" style="display:block;"></code><code class="nohighlight hljs ansi" style="display:block;"></code><code class="nohighlight hljs ansi" style="display:block;"></code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; fname = joinpath(FORECASTS_DIR, &quot;timeseries_pointers_da.json&quot;)</code><code class="nohighlight hljs ansi" style="display:block;">&quot;/home/runner/.julia/artifacts/8ca703c3979927752c9ff77a32bd85f3c97d93b9/PowerSystemsTestData-1.0.1/5-Bus/5bus_ts/timeseries_pointers_da.json&quot;</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; open(fname, &quot;r&quot;) do f
            JSON3.@pretty JSON3.read(f)
-       end</code><code class="nohighlight hljs ansi" style="display:block;">ERROR: UndefVarError: `fname` not defined</code></pre><h2 id="Read-and-assign-time-series-to-System-using-these-parameters."><a class="docs-heading-anchor" href="#Read-and-assign-time-series-to-System-using-these-parameters.">Read and assign time series to <code>System</code> using these parameters.</a><a id="Read-and-assign-time-series-to-System-using-these-parameters.-1"></a><a class="docs-heading-anchor-permalink" href="#Read-and-assign-time-series-to-System-using-these-parameters." title="Permalink"></a></h2><pre><code class="language-julia-repl hljs" style="display:block;">julia&gt; add_time_series!(sys, fname)</code><code class="nohighlight hljs ansi" style="display:block;">ERROR: UndefVarError: `fname` not defined</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; sys</code><code class="nohighlight hljs ansi" style="display:block;">System
+       end</code><code class="nohighlight hljs ansi" style="display:block;">[
+    {
+        &quot;simulation&quot;: &quot;DAY_AHEAD&quot;,
+        &quot;resolution&quot;: 3600,
+        &quot;category&quot;: &quot;Generator&quot;,
+        &quot;component_name&quot;: &quot;SolarBusC&quot;,
+        &quot;module&quot;: &quot;PowerSystems&quot;,
+        &quot;type&quot;: &quot;SingleTimeSeries&quot;,
+        &quot;name&quot;: &quot;max_active_power&quot;,
+        &quot;scaling_factor_multiplier&quot;: &quot;get_max_active_power&quot;,
+        &quot;scaling_factor_multiplier_module&quot;: &quot;PowerSystems&quot;,
+        &quot;normalization_factor&quot;: 1,
+        &quot;data_file&quot;: &quot;./gen/Renewable/PV/da_solar5.csv&quot;
+    },
+    {
+        &quot;simulation&quot;: &quot;DAY_AHEAD&quot;,
+        &quot;resolution&quot;: 3600,
+        &quot;category&quot;: &quot;Generator&quot;,
+        &quot;component_name&quot;: &quot;WindBusA&quot;,
+        &quot;module&quot;: &quot;PowerSystems&quot;,
+        &quot;type&quot;: &quot;SingleTimeSeries&quot;,
+        &quot;name&quot;: &quot;max_active_power&quot;,
+        &quot;scaling_factor_multiplier&quot;: &quot;get_max_active_power&quot;,
+        &quot;scaling_factor_multiplier_module&quot;: &quot;PowerSystems&quot;,
+        &quot;normalization_factor&quot;: 1,
+        &quot;data_file&quot;: &quot;./gen/Renewable/WIND/da_wind5.csv&quot;
+    },
+    {
+        &quot;simulation&quot;: &quot;DAY_AHEAD&quot;,
+        &quot;resolution&quot;: 3600,
+        &quot;category&quot;: &quot;ElectricLoad&quot;,
+        &quot;component_name&quot;: &quot;bus2&quot;,
+        &quot;module&quot;: &quot;PowerSystems&quot;,
+        &quot;type&quot;: &quot;SingleTimeSeries&quot;,
+        &quot;name&quot;: &quot;max_active_power&quot;,
+        &quot;scaling_factor_multiplier&quot;: &quot;get_max_active_power&quot;,
+        &quot;scaling_factor_multiplier_module&quot;: &quot;PowerSystems&quot;,
+        &quot;normalization_factor&quot;: 1,
+        &quot;data_file&quot;: &quot;./load/da_load5.csv&quot;
+    },
+    {
+        &quot;simulation&quot;: &quot;DAY_AHEAD&quot;,
+        &quot;resolution&quot;: 3600,
+        &quot;category&quot;: &quot;ElectricLoad&quot;,
+        &quot;component_name&quot;: &quot;bus3&quot;,
+        &quot;module&quot;: &quot;PowerSystems&quot;,
+        &quot;type&quot;: &quot;SingleTimeSeries&quot;,
+        &quot;name&quot;: &quot;max_active_power&quot;,
+        &quot;scaling_factor_multiplier&quot;: &quot;get_max_active_power&quot;,
+        &quot;scaling_factor_multiplier_module&quot;: &quot;PowerSystems&quot;,
+        &quot;normalization_factor&quot;: 1,
+        &quot;data_file&quot;: &quot;./load/da_load5.csv&quot;
+    },
+    {
+        &quot;simulation&quot;: &quot;DAY_AHEAD&quot;,
+        &quot;resolution&quot;: 3600,
+        &quot;category&quot;: &quot;ElectricLoad&quot;,
+        &quot;component_name&quot;: &quot;bus4&quot;,
+        &quot;module&quot;: &quot;PowerSystems&quot;,
+        &quot;type&quot;: &quot;SingleTimeSeries&quot;,
+        &quot;name&quot;: &quot;max_active_power&quot;,
+        &quot;scaling_factor_multiplier&quot;: &quot;get_max_active_power&quot;,
+        &quot;scaling_factor_multiplier_module&quot;: &quot;PowerSystems&quot;,
+        &quot;normalization_factor&quot;: 1,
+        &quot;data_file&quot;: &quot;./load/da_load5.csv&quot;
+    }
+]</code></pre><h2 id="Read-and-assign-time-series-to-System-using-these-parameters."><a class="docs-heading-anchor" href="#Read-and-assign-time-series-to-System-using-these-parameters.">Read and assign time series to <code>System</code> using these parameters.</a><a id="Read-and-assign-time-series-to-System-using-these-parameters.-1"></a><a class="docs-heading-anchor-permalink" href="#Read-and-assign-time-series-to-System-using-these-parameters." title="Permalink"></a></h2><pre><code class="language-julia-repl hljs" style="display:block;">julia&gt; add_time_series!(sys, fname)</code><code class="nohighlight hljs ansi" style="display:block;"></code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; sys</code><code class="nohighlight hljs ansi" style="display:block;">System
 ┌───────────────────┬─────────────┐
 │ Property          │ Value       │
 ├───────────────────┼─────────────┤
@@ -78,7 +143,17 @@ Static Components
 │ Line                     │ 5     │ false                  │ false         │
 │ LoadZone                 │ 1     │ false                  │ false         │
 │ PhaseShiftingTransformer │ 2     │ false                  │ false         │
-│ PowerLoad                │ 3     │ false                  │ false         │
-│ RenewableDispatch        │ 2     │ false                  │ false         │
+│ PowerLoad                │ 3     │ true                   │ false         │
+│ RenewableDispatch        │ 2     │ true                   │ false         │
 │ ThermalStandard          │ 5     │ false                  │ false         │
-└──────────────────────────┴───────┴────────────────────────┴───────────────┘</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../parse_tabular_data/">« Parsing Tabular Data</a><a class="docs-footer-nextpage" href="../serialize_data/">Serialize Data »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.24 on <span class="colophon-date" title="Tuesday 9 May 2023 18:23">Tuesday 9 May 2023</span>. Using Julia version 1.9.0.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+└──────────────────────────┴───────┴────────────────────────┴───────────────┘
+
+Time Series Summary
+┌──────────────────────────────────┬────────────┐
+│ Property                         │ Value      │
+├──────────────────────────────────┼────────────┤
+│ Components with time series data │ 5          │
+│ Total StaticTimeSeries           │ 5          │
+│ Total Forecasts                  │ 0          │
+│ Resolution                       │ 60 minutes │
+└──────────────────────────────────┴────────────┘</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../parse_tabular_data/">« Parsing Tabular Data</a><a class="docs-footer-nextpage" href="../serialize_data/">Serialize Data »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.24 on <span class="colophon-date" title="Tuesday 9 May 2023 18:25">Tuesday 9 May 2023</span>. Using Julia version 1.9.0.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
