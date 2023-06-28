@@ -30,12 +30,20 @@ Category: PowerSystemCaseBuilder.MatpowerTestSystems
 
 Category: PowerSystemCaseBuilder.PSIDSystems
 
-┌────────────────────┬──────────────────────────────────────────────────┐
-│ Name               │ Descriptor                                       │
-├────────────────────┼──────────────────────────────────────────────────┤
-│ psid_11bus_andes   │ PSID 11-bus Kundur System compared against Andes │
-│ psid_4bus_multigen │ PSID Multiple Generators in Single-Bus Test Case │
-└────────────────────┴──────────────────────────────────────────────────┘
+┌───────────────────────────────────────┬──────────────────────────────────────────────────────────┐
+│ Name                                  │ Descriptor                                               │
+├───────────────────────────────────────┼──────────────────────────────────────────────────────────┤
+│ 14 Bus Base Case                      │ 14 Bus Dynamic Test System Case                          │
+│ 2 Bus Load Tutorial                   │ 2 Bus Base System for load tutorials                     │
+│ 2 Bus Load Tutorial Droop             │ 2 Bus Base System for load tutorials with Droop Inverter │
+│ 2 Bus Load Tutorial GENROU            │ 2 Bus Base System for load tutorials with GENROU         │
+│ 3 Bus Inverter Base                   │ 3 Bus Base System for tutorials                          │
+│ OMIB System                           │ OMIB case with 2 state machine for examples              │
+│ Three Bus Dynamic data Example System │ Three Bus case for examples                              │
+│ WECC 240 Bus                          │ WECC 240 Bus case dynamic data with some modifications   │
+│ psid_11bus_andes                      │ PSID 11-bus Kundur System compared against Andes         │
+│ psid_4bus_multigen                    │ PSID Multiple Generators in Single-Bus Test Case         │
+└───────────────────────────────────────┴──────────────────────────────────────────────────────────┘
 
 Category: PowerSystemCaseBuilder.PSIDTestSystems
 
@@ -203,10 +211,10 @@ PowerSystemCaseBuilder.PSISystems
 PowerSystemCaseBuilder.PSITestSystems
 PowerSystemCaseBuilder.PSSEParsingTestSystems
 PowerSystemCaseBuilder.PSYTestSystems</code></pre><h2 id="Create-a-System"><a class="docs-heading-anchor" href="#Create-a-System">Create a <code>System</code></a><a id="Create-a-System-1"></a><a class="docs-heading-anchor-permalink" href="#Create-a-System" title="Permalink"></a></h2><p>The first time this is run, it will parse csv data. Subsequent executions will rely on serialized data and will execute much faster since the employ deserialization</p><pre><code class="language-julia-repl hljs" style="display:block;">julia&gt; sys = build_system(PSITestSystems, &quot;c_sys5_uc&quot;)</code><code class="nohighlight hljs ansi" style="display:block;">┌ Info: Building new system c_sys5_uc from raw data
-└   sys_descriptor.raw_data = &quot;/home/runner/.julia/artifacts/8ca703c3979927752c9ff77a32bd85f3c97d93b9/PowerSystemsTestData-1.0.1/psy_data/data_5bus_pu.jl&quot;
-[ Info: Serialized time series data to /home/runner/.julia/packages/PowerSystemCaseBuilder/38q0Z/data/serialized_system/ForecastOnly/c_sys5_uc_time_series_storage.h5.
-[ Info: Serialized System to /home/runner/.julia/packages/PowerSystemCaseBuilder/38q0Z/data/serialized_system/ForecastOnly/c_sys5_uc.json
-[ Info: Serialized System metadata to /home/runner/.julia/packages/PowerSystemCaseBuilder/38q0Z/data/serialized_system/ForecastOnly/c_sys5_uc_metadata.json
+└   sys_descriptor.raw_data = &quot;/home/runner/.julia/artifacts/b67da2ffbab324574933c89f5da8037a8a837373/PowerSystemsTestData-1.0.4/psy_data/data_5bus_pu.jl&quot;
+[ Info: Serialized time series data to /home/runner/.julia/packages/PowerSystemCaseBuilder/Bfy5J/data/serialized_system/ForecastOnly/c_sys5_uc_time_series_storage.h5.
+[ Info: Serialized System to /home/runner/.julia/packages/PowerSystemCaseBuilder/Bfy5J/data/serialized_system/ForecastOnly/c_sys5_uc.json
+[ Info: Serialized System metadata to /home/runner/.julia/packages/PowerSystemCaseBuilder/Bfy5J/data/serialized_system/ForecastOnly/c_sys5_uc_metadata.json
 System
 ┌───────────────────┬─────────────┐
 │ Property          │ Value       │
@@ -243,4 +251,4 @@ Time Series Summary
 │ Horizon                          │ 24                  │
 │ Interval                         │ 1440 minutes        │
 │ Forecast window count            │ 2                   │
-└──────────────────────────────────┴─────────────────────┘</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../dynamic_data/">« Use Dynamic Data</a><a class="docs-footer-nextpage" href="../../modeler_guide/type_structure/">Type Structure »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.24 on <span class="colophon-date" title="Wednesday 14 June 2023 21:57">Wednesday 14 June 2023</span>. Using Julia version 1.9.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+└──────────────────────────────────┴─────────────────────┘</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../dynamic_data/">« Use Dynamic Data</a><a class="docs-footer-nextpage" href="../../modeler_guide/type_structure/">Type Structure »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.24 on <span class="colophon-date" title="Wednesday 28 June 2023 05:50">Wednesday 28 June 2023</span>. Using Julia version 1.9.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
