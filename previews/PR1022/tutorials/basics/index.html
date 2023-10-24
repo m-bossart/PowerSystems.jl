@@ -198,39 +198,39 @@ Static Components
  &quot;activepower&quot;</code></pre><p>We can access a specific time series for a specific component:</p><pre><code class="language-julia-repl hljs" style="display:block;">julia&gt; ta = get_time_series_array(Deterministic, loads[1], ts_names[1])</code><code class="nohighlight hljs ansi" style="display:block;">24×1 TimeSeries.TimeArray{Float64, 1, Dates.DateTime, SubArray{Float64, 1, Vector{Float64}, Tuple{UnitRange{Int64}}, true}} 2024-01-02T00:00:00 to 2024-01-02T23:00:00
 │                     │ A      │
 ├─────────────────────┼────────┤
-│ 2024-01-02T00:00:00 │ 0.8155 │
-│ 2024-01-02T01:00:00 │ 0.8161 │
-│ 2024-01-02T02:00:00 │ 0.7342 │
-│ 2024-01-02T03:00:00 │ 0.7137 │
-│ 2024-01-02T04:00:00 │ 0.7256 │
-│ 2024-01-02T05:00:00 │ 0.7108 │
-│ 2024-01-02T06:00:00 │ 0.7076 │
-│ 2024-01-02T07:00:00 │ 0.7734 │
+│ 2024-01-02T00:00:00 │ 0.8124 │
+│ 2024-01-02T01:00:00 │ 0.8215 │
+│ 2024-01-02T02:00:00 │ 0.7614 │
+│ 2024-01-02T03:00:00 │ 0.7665 │
+│ 2024-01-02T04:00:00 │ 0.7572 │
+│ 2024-01-02T05:00:00 │ 0.7093 │
+│ 2024-01-02T06:00:00 │ 0.7764 │
+│ 2024-01-02T07:00:00 │ 0.7973 │
 │ ⋮                   │ ⋮      │
-│ 2024-01-02T17:00:00 │ 0.9473 │
-│ 2024-01-02T18:00:00 │ 1.0066 │
-│ 2024-01-02T19:00:00 │ 1.0753 │
-│ 2024-01-02T20:00:00 │ 1.0869 │
-│ 2024-01-02T21:00:00 │ 0.9975 │
-│ 2024-01-02T22:00:00 │ 1.0192 │
-│ 2024-01-02T23:00:00 │ 0.9129 │</code></pre><p>Or, we can just get the values of the time series:</p><pre><code class="language-julia-repl hljs" style="display:block;">julia&gt; ts = get_time_series_values(Deterministic, loads[1], ts_names[1])</code><code class="nohighlight hljs ansi" style="display:block;">24-element view(::Vector{Float64}, 1:24) with eltype Float64:
- 0.8155283976515828
- 0.8161252777249165
- 0.7342133135907173
- 0.7136627772018894
- 0.7255542777645784
- 0.7108059460340819
- 0.7075522828978331
- 0.7734407707959932
- 0.8364817693399346
- 0.8451188873639969
+│ 2024-01-02T17:00:00 │ 0.9296 │
+│ 2024-01-02T18:00:00 │ 1.0526 │
+│ 2024-01-02T19:00:00 │ 1.0683 │
+│ 2024-01-02T20:00:00 │ 1.0547 │
+│ 2024-01-02T21:00:00 │ 1.0328 │
+│ 2024-01-02T22:00:00 │ 0.9625 │
+│ 2024-01-02T23:00:00 │ 0.9321 │</code></pre><p>Or, we can just get the values of the time series:</p><pre><code class="language-julia-repl hljs" style="display:block;">julia&gt; ts = get_time_series_values(Deterministic, loads[1], ts_names[1])</code><code class="nohighlight hljs ansi" style="display:block;">24-element view(::Vector{Float64}, 1:24) with eltype Float64:
+ 0.8123947763926649
+ 0.8214956255891687
+ 0.7613681273495064
+ 0.7664566751683428
+ 0.7572159641702924
+ 0.7093322092373289
+ 0.776417469490274
+ 0.7972949372802929
+ 0.8284928547764965
+ 0.8532153003776634
  ⋮
- 0.8632414264008126
- 0.9156870365029957
- 0.9473154903882427
- 1.0066282392971853
- 1.0753362885150013
- 1.086896766343242
- 0.9974693622085388
- 1.0191892615418785
- 0.9129474160948002</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../../quick_start_guide/">« Quick Start Guide</a><a class="docs-footer-nextpage" href="../parse_powerflow_cases/">Parsing PowerFlow Data »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.25 on <span class="colophon-date" title="Monday 23 October 2023 22:00">Monday 23 October 2023</span>. Using Julia version 1.9.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+ 0.9142426358248126
+ 0.9067600244240113
+ 0.9295739122041415
+ 1.0525610286418443
+ 1.0682667232628764
+ 1.0547142497121567
+ 1.032803200849156
+ 0.9624776560568418
+ 0.9320574083371701</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../../quick_start_guide/">« Quick Start Guide</a><a class="docs-footer-nextpage" href="../parse_powerflow_cases/">Parsing PowerFlow Data »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.25 on <span class="colophon-date" title="Tuesday 24 October 2023 21:30">Tuesday 24 October 2023</span>. Using Julia version 1.9.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
