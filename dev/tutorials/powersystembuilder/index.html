@@ -113,58 +113,59 @@ Category: PowerSystemCaseBuilder.PSISystems
 
 Category: PowerSystemCaseBuilder.PSITestSystems
 
-┌───────────────────────────────┬─────────────────────────────────────────────────────────────────────────────────┐
-│ Name                          │ Descriptor                                                                      │
-├───────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────┤
-│ batt_test_case_b_sys          │ test system for Storage Energy Target formulation(case-b)                       │
-│ batt_test_case_c_sys          │ test system for Storage Energy Target formulation(case-c)                       │
-│ batt_test_case_d_sys          │ test system for Storage Energy Target formulation(case-d)                       │
-│ batt_test_case_e_sys          │ test system for Storage Energy Target formulation(case-e)                       │
-│ batt_test_case_f_sys          │ test system for Storage Energy Target formulation(case-f)                       │
-│ c_duration_test               │ 1 Bus for duration testing                                                      │
-│ c_linear_pwl_test             │ 1 Bus lineal PWL linear testing                                                 │
-│ c_market_bid_cost             │ 1 bus system with MarketBidCost Model                                           │
-│ c_ramp_test                   │ 1-bus for ramp testing                                                          │
-│ c_sos_pwl_test                │ 1 Bus lineal PWL sos testing                                                    │
-│ c_sys14                       │ 14-bus system                                                                   │
-│ c_sys14_dc                    │ 14-bus system with DC line                                                      │
-│ c_sys5                        │ 5-Bus system                                                                    │
-│ c_sys5_bat                    │ 5-Bus system with Storage Device                                                │
-│ c_sys5_bat_ems                │ 5-Bus system with Storage Device with EMS                                       │
-│ c_sys5_dc                     │ Systems with HVDC data in the branches                                          │
-│ c_sys5_ed                     │ 5-Bus System for Economic Dispatch Simulations                                  │
-│ c_sys5_hy                     │ 5-Bus system with HydroDispatch                                                 │
-│ c_sys5_hy_ed                  │ 5-Bus system with Hydro-Power for Economic Dispatch Simulations                 │
-│ c_sys5_hy_ems_ed              │ 5-Bus system with Hydro-Power for Economic Dispatch Simulations                 │
-│ c_sys5_hy_ems_uc              │ 5-Bus system with Hydro-Power for Unit Commitment Simulations                   │
-│ c_sys5_hy_uc                  │ 5-Bus system with Hydro-Power for Unit Commitment Simulations                   │
-│ c_sys5_hybrid                 │ 5-Bus system with Hybrid devices                                                │
-│ c_sys5_hybrid_ed              │ 5-Bus system with Hybrid devices and thermal devices for ED.                    │
-│ c_sys5_hybrid_uc              │ 5-Bus system with Hybrid devices and thermal UC devices                         │
-│ c_sys5_hyd                    │ 5-Bus system with Hydro Energy Reservoir                                        │
-│ c_sys5_hyd_ems                │ 5-Bus system with Hydro Energy Reservoir                                        │
-│ c_sys5_il                     │ System with Interruptible Load                                                  │
-│ c_sys5_ml                     │ Test System with Monitored Line                                                 │
-│ c_sys5_pglib                  │ 5-Bus with ThermalMultiStart                                                    │
-│ c_sys5_pglib_sim              │ 5-Bus with ThermalMultiStart for simulation                                     │
-│ c_sys5_phes_ed                │ 5-Bus system with Hydro Pumped Energy Storage for Economic Dispatch Simulations │
-│ c_sys5_pwl_ed                 │ 5-Bus with pwl cost function                                                    │
-│ c_sys5_pwl_ed_nonconvex       │ 5-Bus with SOS cost function for Economic Dispatch Simulations                  │
-│ c_sys5_pwl_uc                 │ 5-Bus with SOS cost function for Unit Commitment Simulations                    │
-│ c_sys5_re                     │ 5-Bus system with Renewable Energy                                              │
-│ c_sys5_re_only                │ 5-Bus system with only Renewable Energy                                         │
-│ c_sys5_reg                    │ 5-Bus with regulation devices and AGC                                           │
-│ c_sys5_uc                     │ 5-Bus system for Unit Commitment Simulations                                    │
-│ c_sys5_uc_non_spin            │ 5-Bus system for Unit Commitment with Non-Spinning Reserve Simulations          │
-│ c_sys5_uc_re                  │ 5-Bus system for Unit Commitment Simulations with Renewable Units               │
-│ hydro_test_case_b_sys         │ test system for HydroGen Energy Target formulation(case-b)                      │
-│ hydro_test_case_c_sys         │ test system for HydroGen Energy Target formulation(case-c)                      │
-│ hydro_test_case_d_sys         │ test system for HydroGen Energy Target formulation(case-d)                      │
-│ hydro_test_case_e_sys         │ test system for HydroGen Energy Target formulation(case-e)                      │
-│ hydro_test_case_f_sys         │ test system for HydroGen  Energy Target formulation(case-f)                     │
-│ test_RTS_GMLC_sys             │ RTS-GMLC test system with day-ahead forecast                                    │
-│ test_RTS_GMLC_sys_with_hybrid │ RTS-GMLC test system with day-ahead forecast and HybridSystem                   │
-└───────────────────────────────┴─────────────────────────────────────────────────────────────────────────────────┘
+┌───────────────────────────────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Name                          │ Descriptor                                                                                                        │
+├───────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ batt_test_case_b_sys          │ test system for Storage Energy Target formulation(case-b)                                                         │
+│ batt_test_case_c_sys          │ test system for Storage Energy Target formulation(case-c)                                                         │
+│ batt_test_case_d_sys          │ test system for Storage Energy Target formulation(case-d)                                                         │
+│ batt_test_case_e_sys          │ test system for Storage Energy Target formulation(case-e)                                                         │
+│ batt_test_case_f_sys          │ test system for Storage Energy Target formulation(case-f)                                                         │
+│ c_duration_test               │ 1 Bus for duration testing                                                                                        │
+│ c_linear_pwl_test             │ 1 Bus lineal PWL linear testing                                                                                   │
+│ c_market_bid_cost             │ 1 bus system with MarketBidCost Model                                                                             │
+│ c_ramp_test                   │ 1-bus for ramp testing                                                                                            │
+│ c_sos_pwl_test                │ 1 Bus lineal PWL sos testing                                                                                      │
+│ c_sys14                       │ 14-bus system                                                                                                     │
+│ c_sys14_dc                    │ 14-bus system with DC line                                                                                        │
+│ c_sys5                        │ 5-Bus system                                                                                                      │
+│ c_sys5_all_components         │ 5-Bus system with 5-Bus system with Renewable Energy, Hydro Energy Reservoir, and both StandardLoad and PowerLoad │
+│ c_sys5_bat                    │ 5-Bus system with Storage Device                                                                                  │
+│ c_sys5_bat_ems                │ 5-Bus system with Storage Device with EMS                                                                         │
+│ c_sys5_dc                     │ Systems with HVDC data in the branches                                                                            │
+│ c_sys5_ed                     │ 5-Bus System for Economic Dispatch Simulations                                                                    │
+│ c_sys5_hy                     │ 5-Bus system with HydroDispatch                                                                                   │
+│ c_sys5_hy_ed                  │ 5-Bus system with Hydro-Power for Economic Dispatch Simulations                                                   │
+│ c_sys5_hy_ems_ed              │ 5-Bus system with Hydro-Power for Economic Dispatch Simulations                                                   │
+│ c_sys5_hy_ems_uc              │ 5-Bus system with Hydro-Power for Unit Commitment Simulations                                                     │
+│ c_sys5_hy_uc                  │ 5-Bus system with Hydro-Power for Unit Commitment Simulations                                                     │
+│ c_sys5_hybrid                 │ 5-Bus system with Hybrid devices                                                                                  │
+│ c_sys5_hybrid_ed              │ 5-Bus system with Hybrid devices and thermal devices for ED.                                                      │
+│ c_sys5_hybrid_uc              │ 5-Bus system with Hybrid devices and thermal UC devices                                                           │
+│ c_sys5_hyd                    │ 5-Bus system with Hydro Energy Reservoir                                                                          │
+│ c_sys5_hyd_ems                │ 5-Bus system with Hydro Energy Reservoir                                                                          │
+│ c_sys5_il                     │ System with Interruptible Load                                                                                    │
+│ c_sys5_ml                     │ Test System with Monitored Line                                                                                   │
+│ c_sys5_pglib                  │ 5-Bus with ThermalMultiStart                                                                                      │
+│ c_sys5_pglib_sim              │ 5-Bus with ThermalMultiStart for simulation                                                                       │
+│ c_sys5_phes_ed                │ 5-Bus system with Hydro Pumped Energy Storage for Economic Dispatch Simulations                                   │
+│ c_sys5_pwl_ed                 │ 5-Bus with pwl cost function                                                                                      │
+│ c_sys5_pwl_ed_nonconvex       │ 5-Bus with SOS cost function for Economic Dispatch Simulations                                                    │
+│ c_sys5_pwl_uc                 │ 5-Bus with SOS cost function for Unit Commitment Simulations                                                      │
+│ c_sys5_re                     │ 5-Bus system with Renewable Energy                                                                                │
+│ c_sys5_re_only                │ 5-Bus system with only Renewable Energy                                                                           │
+│ c_sys5_reg                    │ 5-Bus with regulation devices and AGC                                                                             │
+│ c_sys5_uc                     │ 5-Bus system for Unit Commitment Simulations                                                                      │
+│ c_sys5_uc_non_spin            │ 5-Bus system for Unit Commitment with Non-Spinning Reserve Simulations                                            │
+│ c_sys5_uc_re                  │ 5-Bus system for Unit Commitment Simulations with Renewable Units                                                 │
+│ hydro_test_case_b_sys         │ test system for HydroGen Energy Target formulation(case-b)                                                        │
+│ hydro_test_case_c_sys         │ test system for HydroGen Energy Target formulation(case-c)                                                        │
+│ hydro_test_case_d_sys         │ test system for HydroGen Energy Target formulation(case-d)                                                        │
+│ hydro_test_case_e_sys         │ test system for HydroGen Energy Target formulation(case-e)                                                        │
+│ hydro_test_case_f_sys         │ test system for HydroGen  Energy Target formulation(case-f)                                                       │
+│ test_RTS_GMLC_sys             │ RTS-GMLC test system with day-ahead forecast                                                                      │
+│ test_RTS_GMLC_sys_with_hybrid │ RTS-GMLC test system with day-ahead forecast and HybridSystem                                                     │
+└───────────────────────────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 
 Category: PowerSystemCaseBuilder.PSSEParsingTestSystems
 
@@ -217,9 +218,9 @@ PowerSystemCaseBuilder.PSITestSystems
 PowerSystemCaseBuilder.PSSEParsingTestSystems
 PowerSystemCaseBuilder.PSYTestSystems</code></pre><h2 id="Create-a-System"><a class="docs-heading-anchor" href="#Create-a-System">Create a <code>System</code></a><a id="Create-a-System-1"></a><a class="docs-heading-anchor-permalink" href="#Create-a-System" title="Permalink"></a></h2><p>The first time this is run, it will parse csv data. Subsequent executions will rely on serialized data and will execute much faster since the employ deserialization</p><pre><code class="language-julia-repl hljs" style="display:block;">julia&gt; sys = build_system(PSITestSystems, &quot;c_sys5_uc&quot;)</code><code class="nohighlight hljs ansi" style="display:block;">┌ Info: Building new system c_sys5_uc from raw data
 └   sys_descriptor.raw_data = &quot;/home/runner/.julia/artifacts/2b7013812a985ce5884696ce276ca17b2719a57a/PowerSystemsTestData-2.0/psy_data/data_5bus_pu.jl&quot;
-[ Info: Serialized time series data to /home/runner/.julia/packages/PowerSystemCaseBuilder/lf3Me/data/serialized_system/ForecastOnly/c_sys5_uc_time_series_storage.h5.
-[ Info: Serialized System to /home/runner/.julia/packages/PowerSystemCaseBuilder/lf3Me/data/serialized_system/ForecastOnly/c_sys5_uc.json
-[ Info: Serialized System metadata to /home/runner/.julia/packages/PowerSystemCaseBuilder/lf3Me/data/serialized_system/ForecastOnly/c_sys5_uc_metadata.json
+[ Info: Serialized time series data to /home/runner/.julia/packages/PowerSystemCaseBuilder/E76Gu/data/serialized_system/ForecastOnly/c_sys5_uc_time_series_storage.h5.
+[ Info: Serialized System to /home/runner/.julia/packages/PowerSystemCaseBuilder/E76Gu/data/serialized_system/ForecastOnly/c_sys5_uc.json
+[ Info: Serialized System metadata to /home/runner/.julia/packages/PowerSystemCaseBuilder/E76Gu/data/serialized_system/ForecastOnly/c_sys5_uc_metadata.json
 System
 ┌───────────────────┬─────────────┐
 │ Property          │ Value       │
@@ -256,4 +257,4 @@ Time Series Summary
 │ Horizon                          │ 24                  │
 │ Interval                         │ 1440 minutes        │
 │ Forecast window count            │ 2                   │
-└──────────────────────────────────┴─────────────────────┘</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../dynamic_data/">« Use Dynamic Data</a><a class="docs-footer-nextpage" href="../../modeler_guide/type_structure/">Type Structure »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.25 on <span class="colophon-date" title="Wednesday 25 October 2023 19:56">Wednesday 25 October 2023</span>. Using Julia version 1.9.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+└──────────────────────────────────┴─────────────────────┘</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../dynamic_data/">« Use Dynamic Data</a><a class="docs-footer-nextpage" href="../../modeler_guide/type_structure/">Type Structure »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.25 on <span class="colophon-date" title="Friday 27 October 2023 15:44">Friday 27 October 2023</span>. Using Julia version 1.9.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
