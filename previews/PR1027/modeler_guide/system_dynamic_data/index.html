@@ -35,9 +35,9 @@ Q</code></pre><p>Based on the description provided in PTI files, this is a two-b
 [ Info: Parsing PSS(R)E Transformer data into a PowerModels Dict...
 [ Info: Parsing PSS(R)E Two-Terminal and VSC DC line data into a PowerModels Dict...
 ┌ Warning: This PSS(R)E parser currently doesn&#39;t support Storage data parsing...
-└ @ PowerSystems ~/work/PowerSystems.jl/PowerSystems.jl/src/parsers/pm_io/psse.jl:967
+└ @ PowerSystems ~/work/PowerSystems.jl/PowerSystems.jl/src/parsers/pm_io/psse.jl:986
 ┌ Warning: This PSS(R)E parser currently doesn&#39;t support Switch data parsing...
-└ @ PowerSystems ~/work/PowerSystems.jl/PowerSystems.jl/src/parsers/pm_io/psse.jl:973
+└ @ PowerSystems ~/work/PowerSystems.jl/PowerSystems.jl/src/parsers/pm_io/psse.jl:992
 [ Info: angmin and angmax values are 0, widening these values on branch 1 to +/- 60.0 deg.
 [ Info: the voltage setpoint on generator 1 does not match the value at bus 102
 ┌ Info: Constructing System from Power Models
@@ -78,13 +78,13 @@ Static Components
            R = 0.0,
            Xd_p = 0.2995,
            eq_p = 0.7087,
-       )</code><code class="nohighlight hljs ansi" style="display:block;">BaseMachine(0.0, 0.2995, 0.7087, Dict{String, Any}(), Symbol[], 0, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;3ec61d42-cc72-4281-b893-cd66e5ecabfd&quot;), nothing, nothing))</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; #Shaft
+       )</code><code class="nohighlight hljs ansi" style="display:block;">BaseMachine(0.0, 0.2995, 0.7087, Dict{String, Any}(), Symbol[], 0, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;c64fc4ad-36e6-4eaa-aa11-e85f66dc7967&quot;), nothing, nothing))</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; #Shaft
        shaft_damping = SingleMass(
            H = 3.148,
            D = 2.0,
-       )</code><code class="nohighlight hljs ansi" style="display:block;">SingleMass(3.148, 2.0, Dict{String, Any}(), [:δ, :ω], 2, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;29d583b1-30ce-41ac-a879-4a0f6de789e6&quot;), nothing, nothing))</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; #AVR
-       avr_none = AVRFixed(Vf = 0.0)</code><code class="nohighlight hljs ansi" style="display:block;">AVRFixed(0.0, 1.0, Dict{String, Any}(), Symbol[], 0, StateTypes[], InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;5d28237c-5b99-474d-9873-85847b885b96&quot;), nothing, nothing))</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; #TurbineGovernor
-       tg_none = TGFixed(efficiency = 1.0)</code><code class="nohighlight hljs ansi" style="display:block;">TGFixed(1.0, 1.0, Dict{String, Any}(), Symbol[], 0, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;ae437e5d-111f-435c-8f6b-dade5349fb79&quot;), nothing, nothing))</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; #PSS
+       )</code><code class="nohighlight hljs ansi" style="display:block;">SingleMass(3.148, 2.0, Dict{String, Any}(), [:δ, :ω], 2, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;74d38b58-dff0-4f9d-a6b1-1bde6f684d68&quot;), nothing, nothing))</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; #AVR
+       avr_none = AVRFixed(Vf = 0.0)</code><code class="nohighlight hljs ansi" style="display:block;">AVRFixed(0.0, 1.0, Dict{String, Any}(), Symbol[], 0, StateTypes[], InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;1c7b1d23-b9ec-49b8-887d-ead7a16efc9c&quot;), nothing, nothing))</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; #TurbineGovernor
+       tg_none = TGFixed(efficiency = 1.0)</code><code class="nohighlight hljs ansi" style="display:block;">TGFixed(1.0, 1.0, Dict{String, Any}(), Symbol[], 0, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;1431f417-626e-4895-be7a-be87b2f3c3ca&quot;), nothing, nothing))</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; #PSS
        pss_none = PSSFixed(V_pss = 0.0);</code><code class="nohighlight hljs ansi" style="display:block;"></code></pre><p>Then we can collect all the dynamic components and create the dynamic generator and assign it to a static generator of choice. In this example we will add it to the generator &quot;generator-102-1&quot; as follows:</p><pre><code class="language-julia-repl hljs" style="display:block;">julia&gt; #Collect the static gen in the system
        static_gen = get_component(Generator, omib_sys, &quot;generator-102-1&quot;)</code><code class="nohighlight hljs ansi" style="display:block;">generator-102-1 (ThermalStandard):
    name: generator-102-1
@@ -176,9 +176,9 @@ Q</code></pre><p>That describes a three bus connected system, with generators co
 [ Info: Parsing PSS(R)E Transformer data into a PowerModels Dict...
 [ Info: Parsing PSS(R)E Two-Terminal and VSC DC line data into a PowerModels Dict...
 ┌ Warning: This PSS(R)E parser currently doesn&#39;t support Storage data parsing...
-└ @ PowerSystems ~/work/PowerSystems.jl/PowerSystems.jl/src/parsers/pm_io/psse.jl:967
+└ @ PowerSystems ~/work/PowerSystems.jl/PowerSystems.jl/src/parsers/pm_io/psse.jl:986
 ┌ Warning: This PSS(R)E parser currently doesn&#39;t support Switch data parsing...
-└ @ PowerSystems ~/work/PowerSystems.jl/PowerSystems.jl/src/parsers/pm_io/psse.jl:973
+└ @ PowerSystems ~/work/PowerSystems.jl/PowerSystems.jl/src/parsers/pm_io/psse.jl:992
 [ Info: angmin and angmax values are 0, widening these values on branch 1 to +/- 60.0 deg.
 [ Info: angmin and angmax values are 0, widening these values on branch 2 to +/- 60.0 deg.
 [ Info: angmin and angmax values are 0, widening these values on branch 3 to +/- 60.0 deg.
@@ -234,7 +234,7 @@ Static Components
            ωad = 50.0,     #Active damping low pass filter cut-off frequency
            kad = 0.2,      #Active damping gain
        )</code><code class="nohighlight hljs ansi" style="display:block;">VoltageModeControl(0.59, 736.0, 0.0, 0.0, 0.2, 1.27, 14.3, 0.0, 50.0, 0.2, Dict{String, Any}(), [:ξd_ic, :ξq_ic, :γd_ic, :γq_ic, :ϕd_ic, :ϕq_ic], 6)</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; #Define DC Source as a FixedSource:
-       dc_source_lv = FixedDCSource(voltage = 600.0)</code><code class="nohighlight hljs ansi" style="display:block;">FixedDCSource(600.0, Dict{String, Any}(), Symbol[], 0, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;ffcdbd54-42ae-4fba-9451-5483e716508a&quot;), nothing, nothing))</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; #Define a Frequency Estimator as a PLL based on Vikram Kaura and Vladimir Blaskoc 1997 paper:
+       dc_source_lv = FixedDCSource(voltage = 600.0)</code><code class="nohighlight hljs ansi" style="display:block;">FixedDCSource(600.0, Dict{String, Any}(), Symbol[], 0, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;5a9ee560-42a6-4995-b461-d680dce9ddbb&quot;), nothing, nothing))</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; #Define a Frequency Estimator as a PLL based on Vikram Kaura and Vladimir Blaskoc 1997 paper:
        pll = KauraPLL(
            ω_lp = 500.0, #Cut-off frequency for LowPass filter of PLL filter.
            kp_pll = 0.084,  #PLL proportional gain
@@ -249,11 +249,11 @@ Static Components
            Xq_p = 0.25,
            Td0_p = 5.89,
            Tq0_p = 0.6,
-       )</code><code class="nohighlight hljs ansi" style="display:block;">OneDOneQMachine(0.0, 1.3125, 1.2578, 0.1813, 0.25, 5.89, 0.6, Dict{String, Any}(), [:eq_p, :ed_p], 2, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;307f9ba7-7b73-423b-a4a5-002923406485&quot;), nothing, nothing))</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; #Shaft
+       )</code><code class="nohighlight hljs ansi" style="display:block;">OneDOneQMachine(0.0, 1.3125, 1.2578, 0.1813, 0.25, 5.89, 0.6, Dict{String, Any}(), [:eq_p, :ed_p], 2, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;35bb59e6-95d8-4e17-885c-801e9911cebd&quot;), nothing, nothing))</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; #Shaft
        shaft_no_damping = SingleMass(
            H = 3.01,
            D = 0.0,
-       )</code><code class="nohighlight hljs ansi" style="display:block;">SingleMass(3.01, 0.0, Dict{String, Any}(), [:δ, :ω], 2, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;29350638-4ced-4b0e-ac89-689cf1e759da&quot;), nothing, nothing))</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; #AVR: Type I: Resembles a DC1 AVR
+       )</code><code class="nohighlight hljs ansi" style="display:block;">SingleMass(3.01, 0.0, Dict{String, Any}(), [:δ, :ω], 2, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;cb361dd5-7729-4e10-b392-404c2f7703a4&quot;), nothing, nothing))</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; #AVR: Type I: Resembles a DC1 AVR
        avr_type1 = AVRTypeI(
            Ka = 20.0,
            Ke = 0.01,
@@ -265,8 +265,8 @@ Static Components
            Va_lim = (min = -5.0, max = 5.0),
            Ae = 0.0039, #1st ceiling coefficient
            Be = 1.555, #2nd ceiling coefficient
-       )</code><code class="nohighlight hljs ansi" style="display:block;">AVRTypeI(20.0, 0.01, 0.063, 0.2, 0.314, 0.35, 0.001, (min = -5.0, max = 5.0), 0.0039, 1.555, 1.0, Dict{String, Any}(), [:Vf, :Vr1, :Vr2, :Vm], 4, StateTypes[StateTypes.Differential = 1, StateTypes.Differential = 1, StateTypes.Differential = 1, StateTypes.Differential = 1], InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;b0f21d3a-c717-4c84-88d6-5dab9e8140a8&quot;), nothing, nothing))</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; #No TG
-       tg_none = TGFixed(efficiency = 1.0)</code><code class="nohighlight hljs ansi" style="display:block;">TGFixed(1.0, 1.0, Dict{String, Any}(), Symbol[], 0, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;6f69caa7-255c-4866-bc20-29ddda595b78&quot;), nothing, nothing))</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; #No PSS
+       )</code><code class="nohighlight hljs ansi" style="display:block;">AVRTypeI(20.0, 0.01, 0.063, 0.2, 0.314, 0.35, 0.001, (min = -5.0, max = 5.0), 0.0039, 1.555, 1.0, Dict{String, Any}(), [:Vf, :Vr1, :Vr2, :Vm], 4, StateTypes[StateTypes.Differential = 1, StateTypes.Differential = 1, StateTypes.Differential = 1, StateTypes.Differential = 1], InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;421b4bb2-f4d1-4879-875f-bfa0d539731d&quot;), nothing, nothing))</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; #No TG
+       tg_none = TGFixed(efficiency = 1.0)</code><code class="nohighlight hljs ansi" style="display:block;">TGFixed(1.0, 1.0, Dict{String, Any}(), Symbol[], 0, InfrastructureSystems.InfrastructureSystemsInternal(UUID(&quot;4171a63a-dfee-43fa-ab61-2c6fbf962291&quot;), nothing, nothing))</code><br/><code class="language-julia-repl hljs" style="display:block;">julia&gt; #No PSS
        pss_none = PSSFixed(V_pss = 0.0);</code><code class="nohighlight hljs ansi" style="display:block;"></code></pre><h3 id="Add-the-components-to-the-System"><a class="docs-heading-anchor" href="#Add-the-components-to-the-System">Add the components to the System</a><a id="Add-the-components-to-the-System-1"></a><a class="docs-heading-anchor-permalink" href="#Add-the-components-to-the-System" title="Permalink"></a></h3><pre><code class="language-julia-repl hljs" style="display:block;">julia&gt; for g in get_components(Generator, threebus_sys)
            #Find the generator at bus 102
            if get_number(get_bus(g)) == 102
@@ -330,4 +330,4 @@ Dynamic Components
 ├──────────────────┼───────┤
 │ DynamicGenerator │ 1     │
 │ DynamicInverter  │ 1     │
-└──────────────────┴───────┘</code></pre><p>Finally we can seraliaze the system data for later reloading</p><pre><code class="language-julia hljs">to_json(threebus_sys, &quot;YOUR_DIR/threebus_sys.json&quot;)</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../example_dynamic_data/">« Dynamic Devices</a><a class="docs-footer-nextpage" href="../market_bid_cost/">PowerSystems <code>MarketBidCost</code> »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.25 on <span class="colophon-date" title="Friday 15 December 2023 23:20">Friday 15 December 2023</span>. Using Julia version 1.9.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+└──────────────────┴───────┘</code></pre><p>Finally we can seraliaze the system data for later reloading</p><pre><code class="language-julia hljs">to_json(threebus_sys, &quot;YOUR_DIR/threebus_sys.json&quot;)</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../example_dynamic_data/">« Dynamic Devices</a><a class="docs-footer-nextpage" href="../market_bid_cost/">PowerSystems <code>MarketBidCost</code> »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.25 on <span class="colophon-date" title="Wednesday 20 December 2023 21:36">Wednesday 20 December 2023</span>. Using Julia version 1.9.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
