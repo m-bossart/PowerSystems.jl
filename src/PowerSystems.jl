@@ -485,7 +485,7 @@ export generate_struct_file
 export generate_struct_files
 export UnitSystem # internal.jl
 
-# TODO export ComponentSelector stuff
+#ComponentSelector
 export ComponentSelector
 export ComponentSelectorElement
 export ComponentSelectorSet
@@ -499,6 +499,7 @@ export component_to_qualified_string
 export select_components
 export get_components
 export get_subselectors
+export NAME_DELIMETER
 #################################################################################
 # Imports
 
