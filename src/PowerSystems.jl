@@ -498,7 +498,9 @@ export DynamicallyGroupedComponentSelector
 export subtype_to_string
 export component_to_qualified_string
 export make_selector
+export rebuild_selector
 export get_groups
+export get_available_groups
 #################################################################################
 # Imports
 
@@ -627,7 +629,8 @@ import InfrastructureSystems:
     component_to_qualified_string,
     subtype_to_string,
     COMPONENT_NAME_DELIMITER,
-    make_selector
+    make_selector,
+    rebuild_selector
 import InfrastructureSystems:
     ValueCurve,
     InputOutputCurve,
@@ -776,5 +779,7 @@ include("models/serialization.jl")
 
 #Deprecated
 include("deprecated.jl")
+
+const GenericBattery = EnergyReservoirStorage
 
 end # module
